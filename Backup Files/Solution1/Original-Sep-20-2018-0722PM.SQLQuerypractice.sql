@@ -17,3 +17,16 @@ select *from student;
 
 insert into student(name,age,email) values('Marry',19,'marry@gmail.com');
 select *from student;
+
+
+use LearningSQL;
+select dept_no, emp_no from employee;
+select distinct dept_no from employee;
+select Count(distinct dept_no) from employee;
+select dept_no from employee group by dept_no;
+select count (dept_no) from employee group by dept_no;
+Select * from works_on;
+Select project_no, count(project_no) as 'No. of Employee' from works_on group by project_no;
+
+alter table students
+ alter column phone integer
