@@ -19,3 +19,13 @@ select location_id from locations where state_province='california');
 
 
 select department_id,COUNT (*) from employees WHERE commission_pct IS NULL Group by department_id;
+
+------show the name of the departments along with no of employees in each department
+
+select* from departments;
+select department_name, COUNT(*)As "No. of Employee" from departments AS D INNER JOIN employees AS E 
+					ON E.department_id =d.department_id group by D.department_name;
+
+
+------ show the name of the employees who contain a letter K to the firstname---
+Select* from employees where first_name like '%k%' ;
