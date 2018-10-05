@@ -89,9 +89,6 @@ Select E.first_name,E.last_name, D.department_name from employees AS E INNER JOI
    GROUP BY D.department_name   
    having count(*)>3
 
-
-
-
   --------show  region name in which the company is working in more than 4 cities---
   ---select count( *) AS "CITIES", R. region_name  from countries AS C
  --  INNER JOIN Regions As R
@@ -111,5 +108,43 @@ INNER JOIN  countries AS C
 
 
 
+ ----CREATE Trigger for Producthistory in which it should not allowed delete option ----
+  use HR
+    select* from locations;
+	   delete from location where location_id=1000;
+
+
+	   create trigger del_trigger
+	   ON locations
+	   instead of delete
+
+
+	   AS 
+	   BEGIN 
+	   ----raiserror ('you cannot perform delete',16,1);
+	   ---rollback
+
+
+	   raiserror ('you cannot perform delete',12,244);
+	   rollback
+
+	   END;
+	   
+
+
+
+  ------create trigger on sql  server that does not allow to delete database----
+   -----CREATE TRIGGER Safedtabase
+   ------ON ALL SERVER 
+   ------DROP_DATABASE
+   ---AS 
+   ---BEGIN 
+         ----print('you must disable Trigger SafeDatabase to drop database',10,2)
+
+	----ROLLBACK
+
+
+
+	---END
 
 
